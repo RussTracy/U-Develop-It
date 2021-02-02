@@ -1,0 +1,19 @@
+{
+  "name": "u-develop-it",
+  "version": "1.0.0",
+  "description": "express.js app with sqlite",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RussTracy/U-Develop-It.git"
+  },
+  "author": "Russ Tracy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RussTracy/U-Develop-It/issues"
+  },
+  "homepage": "https://github.com/RussTracy/U-Develop-It#readme"
+}
