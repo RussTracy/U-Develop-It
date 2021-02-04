@@ -24,18 +24,31 @@ connection.connect(function (err) {
 
 //rest api to get all candidates
 app.get('/candidates', function (req, res) {
-    connection.query('SELECT * FROM candidates', function (error, results, fields) {
+    connection.query(`SELECT candidates.*, parties.party_name
+    AS "Party Name"
+    FROM candidates
+    LEFT JOIN parties
+    ON candidates.party_id = parties.id`, function (error, results, fields) {
         if (error) throw error;
         res.end(JSON.stringify(results));
     });
+    // connection.query('SELECT * FROM candidates', function (error, results, fields) {
+    //     if (error) throw error;
+    //     res.end(JSON.stringify(results));
+    // });
 });
 
 //rest api to get a single candidate data
 app.get('/candidates/:id', function (req, res) {
-    connection.query('SELECT * FROM candidates WHERE id=?', [req.params.id], function (error, results, fields) {
+    connection.query('SELECT candidates.*, parties.party_name AS "Party Name" FROM candidates LEFT JOIN parties ON candidates.party_id = parties.id WHERE candidates.id=?', [req.params.id], function (error, results, fields) {
         if (error) throw error;
         res.end(JSON.stringify(results));
     });
+
+    // connection.query('SELECT * FROM candidates WHERE id=?', [req.params.id], function (error, results, fields) {
+    //     if (error) throw error;
+    //     res.end(JSON.stringify(results));
+    // });
 });
 
 //rest api to create a new candidate record into mysql database
