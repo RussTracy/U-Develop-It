@@ -9,3 +9,10 @@ CREATE TABLE candidates (
   industry_connected BOOLEAN NOT NULL,
   PRIMARY KEY (id)
 );
+
+CREATE TABLE parties (
+  id INTEGER(11) AUTO_INCREMENT NOT NULL,
+  party_name VARCHAR(30) NOT NULL,
+  party_description TEXT,
+  PRIMARY KEY (id)
+);
